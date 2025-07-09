@@ -326,7 +326,7 @@ const projects = [
 .project-card {
   background: rgba(255, 107, 107, 0.1);
   backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 107, 107, 0.3);
+  border: 1px solid rgba(255, 107, 107, 0.2); /* Border lebih tipis */
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -340,37 +340,39 @@ const projects = [
 .project-card::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
-  animation: cardGlow 6s ease-in-out infinite alternate;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(135deg,
+    rgba(255, 107, 107, 0.4) 0%,
+    rgba(255, 107, 107, 0.2) 50%,
+    rgba(255, 107, 107, 0.4) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover::before {
+  opacity: 1;
 }
 
 .project-card:hover {
   background: rgba(255, 107, 107, 0.15);
-  border-color: rgba(255, 107, 107, 0.5);
   transform: translateY(-15px) scale(1.02);
   box-shadow: 0 15px 40px rgba(255, 107, 107, 0.3);
-}
-
-@keyframes cardGlow {
-  0% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0.6;
-    transform: scale(1.1);
-  }
 }
 
 .project-image-container {
   position: relative;
   height: 250px;
   overflow: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .project-image {
@@ -378,11 +380,13 @@ const projects = [
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s ease;
+  transform-origin: center center;
 }
 
 .project-card:hover .project-image {
-  transform: scale(1.1);
+  transform: scale(1.05); /* Scale lebih kecil agar smooth */
 }
+
 
 .project-overlay {
   position: absolute;

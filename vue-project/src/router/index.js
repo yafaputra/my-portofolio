@@ -5,6 +5,7 @@ import MyEducation from '@/components/MyEducation.vue';
 import MyHero from '@/components/MyHero.vue';
 import MySkills from '@/components/MySkills.vue';
 import MyProjects from '@/components/MyProjects.vue';
+import MyContact from '@/components/MyContact.vue';
 
 const routes = [
   {
@@ -19,7 +20,8 @@ const routes = [
   },
   { path:'/myhero',name:'MyHero',component:MyHero },
   {path: '/myskills', name:'MySkills',component:MySkills},
-  {path: '/myrojects', namr: 'MyProjects', component:MyProjects}
+  {path: '/myrojects', name: 'MyProjects', component:MyProjects},
+  {path: '/mycontact', name: 'MyContact', compoment:MyContact}
 ];
 
 const router = createRouter({

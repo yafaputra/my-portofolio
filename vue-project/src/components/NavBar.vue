@@ -97,7 +97,7 @@ export default {
             { text: 'Pendidikan', link: '/pendidikan' },
             { text: 'Skill', link: '/myskills' },
             { text: 'Proyek', link: '/myrojects' },
-            { text: 'Kontak', link: '#kontak' }
+            { text: 'Kontak', link: '/mycontact' }
         ]);
 
         const toggleMobileMenu = () => {

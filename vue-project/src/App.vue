@@ -1,15 +1,17 @@
-<!-- src/App.vue -->
 <template>
   <Navbar />
-  <router-view/>
+  <router-view />
+  <mycontact />
 </template>
 
 <script>
 import Navbar from './components/NavBar.vue'
+import mycontact from './components/MyContact.vue'
 
 export default {
   components: {
-    Navbar
+    Navbar,
+    mycontact
   }
 }
 </script>
