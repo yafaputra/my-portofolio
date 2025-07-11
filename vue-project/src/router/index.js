@@ -9,7 +9,7 @@ import MyCertificat from '@/components/MyCertificat.vue';
 const routes = [
   {
     path: '/',
-    name: 'MyHero',
+    name: 'myhero',
     component: MyHero
   },
   {

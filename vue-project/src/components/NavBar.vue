@@ -135,11 +135,10 @@ export default {
     setup() {
         const mobileMenuOpen = ref(false);
         const navItems = ref([
-            { text: 'Home', link: '/myhero' },
-            { text: 'Pendidikan', link: '/pendidikan' },
-            { text: 'Skill', link: '/myskills' },
-            { text: 'Proyek', link: '/myprojects' },
-            { text: 'Sertifikat', link: '#amycertificat' }
+            { text: 'Home', link: '#myhero' },
+            { text: 'Pendidikan', link: '#myeducation' },
+            { text: 'Skill', link: '#myskills' },
+            { text: 'Proyek', link: '#myprojects' },
         ]);
 
         const toggleMobileMenu = () => {
