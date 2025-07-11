@@ -1,27 +1,31 @@
 import { createRouter, createWebHistory } from 'vue-router';
-
-import HomeView from '../views/HomeView.vue';
+import SectionTitle from '@/components/SectionTitle.vue';
 import MyEducation from '@/components/MyEducation.vue';
 import MyHero from '@/components/MyHero.vue';
 import MySkills from '@/components/MySkills.vue';
 import MyProjects from '@/components/MyProjects.vue';
 import MyContact from '@/components/MyContact.vue';
-
+import MyCertificat from '@/components/MyCertificat.vue';
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: HomeView
+    name: 'MyHero',
+    component: MyHero
   },
   {
     path: '/pendidikan',
     name: 'MyEducation',
     component: MyEducation
   },
+  {path: '/sectiontitle',
+    name: 'SectionTitle',
+    component: SectionTitle
+  },
   { path:'/myhero',name:'MyHero',component:MyHero },
   {path: '/myskills', name:'MySkills',component:MySkills},
-  {path: '/myrojects', name: 'MyProjects', component:MyProjects},
-  {path: '/mycontact', name: 'MyContact', compoment:MyContact}
+  {path: '/myprojects', name: 'MyProjects', component:MyProjects},
+  {path: '/mycontact', name: 'MyContact', compoment:MyContact},
+  {path: '/mycertificat', name: 'MyCertificat', component: MyCertificat}
 ];
 
 const router = createRouter({

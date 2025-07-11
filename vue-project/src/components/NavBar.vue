@@ -1,82 +1,124 @@
 <template>
-    <header class="glass-effect animated-bg shadow-2xl sticky top-0 z-50 transition-all duration-300 border-b border-gray-700/30">
-        <nav class="container mx-auto px-6 py-6">
-            <div class="flex justify-between items-center">
+    <header class="sticky top-0 z-50 transition-all duration-500 border-b border-emerald-500/20 backdrop-blur-xl bg-gradient-to-r from-slate-900/95 via-gray-900/95 to-slate-900/95 shadow-2xl shadow-emerald-500/10">
+        <!-- Animated background particles -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 left-0 w-full h-full">
+                <div class="absolute animate-float-slow top-4 left-1/4 w-2 h-2 bg-emerald-400/30 rounded-full blur-sm"></div>
+                <div class="absolute animate-float-medium top-6 right-1/3 w-1 h-1 bg-teal-400/40 rounded-full blur-sm"></div>
+                <div class="absolute animate-float-fast top-8 left-2/3 w-1.5 h-1.5 bg-cyan-400/25 rounded-full blur-sm"></div>
+            </div>
+        </div>
+
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center relative">
+                <!-- Enhanced decorative background lines -->
+                <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                    <div class="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-emerald-500/20 to-transparent animate-pulse-slow"></div>
+                    <div class="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-teal-500/20 to-transparent animate-pulse-slow"></div>
+                    <div class="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-transparent via-cyan-500/10 to-transparent animate-pulse-slower"></div>
+                </div>
+
+                <!-- Simple Logo -->
                 <div class="flex items-center group cursor-pointer relative">
-                    <div class="text-3xl font-bold tracking-tight relative">
-                        <div class="absolute inset-0 bg-gradient-to-r from-red-500/20 to-orange-500/20 blur-xl rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <!-- Complete logo with scale effect -->
+                    <div class="group-hover:scale-110 transition-all duration-300 flex items-center">
+                        <!-- Terminal-style brackets -->
+                        <span class="text-emerald-400 font-mono text-lg mr-1 group-hover:text-emerald-300 transition-colors duration-300">&lt;</span>
 
-                        <span class="relative inline-block">
-                            <span class="bg-gradient-to-r from-red-400 via-red-500 to-orange-500 bg-clip-text text-transparent hover:from-red-300 hover:to-orange-400 transition-all duration-300 transform group-hover:scale-105">
-                                Yafa
+                        <!-- Name -->
+                        <div class="text-xl font-bold text-white relative">
+                            <span class="bg-gradient-to-r from-emerald-300 via-teal-300 to-cyan-300 bg-clip-text text-transparent group-hover:from-emerald-200 group-hover:via-teal-200 group-hover:to-cyan-200 transition-all duration-500">
+                                Yafa Nanda Putra
                             </span>
-                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-red-500 to-orange-500 group-hover:w-full transition-all duration-500"></span>
-                        </span>
+                        </div>
 
-                        <span class="text-white ml-3 relative inline-block font-light">
-                            Putra
-                            <span class="absolute -top-2 -right-2 w-2 h-2 bg-red-500 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        </span>
-                    </div>
-
-                    <div class="ml-4 flex flex-col space-y-1">
-                        <div class="h-0.5 w-6 bg-gradient-to-r from-red-500 to-orange-500 rounded-full transform group-hover:w-10 transition-all duration-300"></div>
-                        <div class="h-0.5 w-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full transform group-hover:w-8 transition-all duration-300 delay-100"></div>
+                        <span class="text-emerald-400 font-mono text-lg ml-1 group-hover:text-emerald-300 transition-colors duration-300">/&gt;</span>
                     </div>
                 </div>
 
-                <ul class="hidden md:flex **space-x-8** items-center absolute left-1/2 transform -translate-x-1/2">
+                <!-- Enhanced Navigation Menu -->
+                <ul class="hidden md:flex space-x-8 items-center relative z-10">
                     <li v-for="(item, index) in navItems" :key="index">
                         <a :href="item.link"
-                           class="nav-link relative text-gray-300 hover:text-white font-medium transition-colors duration-300 px-5 py-3 rounded-xl">
+                           class="relative text-gray-300 hover:text-emerald-400 font-medium transition-colors duration-300 px-4 py-2 group">
+                            <!-- Simple text -->
                             <span class="relative z-10">{{ item.text }}</span>
-                            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-red-500 to-orange-500 group-hover:w-4/5 transition-all duration-300 rounded-full"></div>
+
+                            <!-- Simple underline effect -->
+                            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-emerald-400 group-hover:w-4/5 transition-all duration-300 rounded-full"></div>
                         </a>
                     </li>
                 </ul>
 
-                <div class="hidden md:block">
+                <!-- Enhanced Contact Button -->
+                <div class="hidden md:block relative z-10">
                     <a href="#kontak"
-                       class="contact-btn relative inline-flex items-center space-x-2 bg-gradient-to-r from-red-500 to-orange-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-xl hover:shadow-red-500/30 transition-all duration-300 overflow-hidden group transform hover:scale-105">
+                       class="relative inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-emerald-700 hover:to-teal-700 hover:shadow-xl hover:shadow-emerald-500/30 transition-all duration-300 overflow-hidden group transform hover:-translate-y-1 hover:scale-105 border border-emerald-500/30 hover:border-emerald-400/50">
+                        <!-- Animated background -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-white/20 via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                        <!-- Pulse effect -->
+                        <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-emerald-400/20 to-teal-400/20 animate-pulse-glow opacity-0 group-hover:opacity-100"></div>
+
+                        <!-- Enhanced brackets -->
+                        <span class="relative z-10 font-mono text-sm text-emerald-200 group-hover:text-white transition-colors duration-300 group-hover:animate-bounce-subtle">&lt;</span>
                         <span class="relative z-10 font-semibold">Kontak</span>
-                        <svg class="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                        <span class="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></span>
-                        <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 rounded-xl"></span>
+                        <span class="relative z-10 font-mono text-sm text-emerald-200 group-hover:text-white transition-colors duration-300 group-hover:animate-bounce-subtle">/&gt;</span>
+
+                        <!-- Moving light effect -->
+                        <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 rounded-lg"></span>
+
+                        <!-- Corner accents -->
+                        <div class="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-emerald-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-teal-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </a>
                 </div>
 
-                <button @click="toggleMobileMenu" class="md:hidden p-3 rounded-xl hover:bg-gray-800/50 transition-all duration-200 glass-effect group">
-                    <svg class="w-6 h-6 text-gray-300 group-hover:text-red-500 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Enhanced Mobile Menu Button -->
+                <button @click="toggleMobileMenu" class="md:hidden p-3 rounded-lg hover:bg-emerald-500/10 transition-all duration-200 backdrop-blur-xl bg-slate-800/50 border border-emerald-500/30 group relative overflow-hidden">
+                    <!-- Ripple effect -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-teal-400/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+
+                    <svg class="w-6 h-6 text-gray-300 group-hover:text-emerald-400 transition-colors duration-300 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
+
+                    <!-- Corner dots -->
+                    <div class="absolute top-1 right-1 w-1 h-1 bg-emerald-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-1 left-1 w-1 h-1 bg-teal-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
             </div>
 
-            <div v-show="mobileMenuOpen" class="md:hidden mt-6 pb-4 border-t border-gray-700/50 animate-fade-in">
-                <ul class="**space-y-3** pt-4"> <li v-for="(item, index) in navItems" :key="index">
+            <!-- Enhanced Mobile Menu -->
+            <div v-show="mobileMenuOpen" class="md:hidden mt-6 pb-4 border-t border-emerald-500/20 animate-slide-down">
+                <ul class="space-y-3 pt-4">
+                    <li v-for="(item, index) in navItems" :key="index" class="animate-fade-in-up" :style="{ animationDelay: index * 0.1 + 's' }">
                         <a :href="item.link"
                            @click="closeMobileMenu"
-                           class="mobile-nav-link flex items-center space-x-3 text-gray-300 hover:text-white font-medium py-4 px-6 rounded-xl hover:bg-gradient-to-r hover:from-red-500/10 hover:to-orange-500/10 transition-all duration-300 group border border-transparent hover:border-red-500/20">
-                            <span class="w-2 h-2 bg-gradient-to-r from-red-500 to-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                            <span>{{ item.text }}</span>
-                            <span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
+                           class="flex items-center space-x-3 text-gray-300 hover:text-emerald-400 font-medium py-3 px-4 rounded-lg hover:bg-emerald-500/10 transition-all duration-300 group border border-transparent hover:border-emerald-500/30 relative overflow-hidden">
+                            <!-- Background effect -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-teal-500/5 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+
+                            <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 relative z-10"></span>
+                            <span class="relative z-10">{{ item.text }}</span>
+                            <span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-mono text-sm relative z-10 text-emerald-400">
+                                &gt;
                             </span>
                         </a>
                     </li>
-                    <li class="pt-3">
+                    <li class="pt-3 animate-fade-in-up" style="animation-delay: 0.6s;">
                         <a href="#kontak"
                            @click="closeMobileMenu"
-                           class="mobile-contact-btn flex items-center justify-center bg-gradient-to-r from-red-500 to-orange-500 text-white py-4 px-6 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 group overflow-hidden transform hover:scale-105">
-                            <span class="font-semibold relative z-10">Kontak</span>
-                            <svg class="w-4 h-4 ml-2 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                            <span class="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></span>
+                           class="flex items-center justify-center bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-emerald-700 hover:to-teal-700 hover:shadow-lg transition-all duration-300 group overflow-hidden transform hover:scale-105 relative">
+                            <!-- Animated background -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-white/20 via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                            <span class="font-mono text-sm relative z-10">&lt;</span>
+                            <span class="font-semibold relative z-10 mx-2">Kontak</span>
+                            <span class="font-mono text-sm relative z-10">/&gt;</span>
+
+                            <!-- Moving light effect -->
+                            <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 rounded-lg"></span>
                         </a>
                     </li>
                 </ul>
@@ -89,15 +131,15 @@
 import { ref } from 'vue';
 
 export default {
-    name: 'MainNavbar',
+    name: 'EnhancedNavbar',
     setup() {
         const mobileMenuOpen = ref(false);
         const navItems = ref([
-            { text: 'Home', link: 'myhero' }, // Changed from 'Profil' to 'Home'
+            { text: 'Home', link: '/myhero' },
             { text: 'Pendidikan', link: '/pendidikan' },
             { text: 'Skill', link: '/myskills' },
-            { text: 'Proyek', link: '/myrojects' },
-            { text: 'Kontak', link: '/mycontact' }
+            { text: 'Proyek', link: '/myprojects' },
+            { text: 'Sertifikat', link: '#amycertificat' }
         ]);
 
         const toggleMobileMenu = () => {
@@ -119,94 +161,51 @@ export default {
 </script>
 
 <style scoped>
-/* Pastikan Tailwind CSS sudah terintegrasi dan berfungsi di proyek Vue Anda. */
-
-.animated-bg {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+/* Enhanced animations */
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
-.glass-effect {
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    background: rgba(0, 0, 0, 0.85);
-    border-color: rgba(255, 107, 107, 0.2);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+@keyframes float-slow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(180deg); }
 }
 
-/* Brand Name Line Transition */
-.group:hover .h-0.5 {
-    width: 3rem;
-    background: linear-gradient(to right, #ff6b6b, #ff8e8e);
+@keyframes float-medium {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(120deg); }
 }
 
-/* Nav Link Styling (Sederhana tapi Bagus) */
-.nav-link {
-    transition: all 0.3s ease;
-    padding: 0.75rem 1rem;
-    border-radius: 0.5rem;
-    display: inline-block;
-    position: relative;
+@keyframes float-fast {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-6px) rotate(240deg); }
 }
 
-.nav-link::before {
-    content: none;
+@keyframes pulse-slow {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.4; }
 }
 
-.nav-link:hover {
-    color: #ff6b6b;
-    transform: translateY(-2px);
+@keyframes pulse-slower {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.3; }
 }
 
-/* Underline effect for nav links */
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0.25rem;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(to right, #ff6b6b, #ff8e8e);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
 }
 
-.nav-link:hover::after {
-    width: 80%;
+@keyframes bounce-subtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
 }
 
-/* Contact Button */
-.contact-btn {
-    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
-    border: 1px solid transparent;
-}
-
-.contact-btn:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(239, 68, 68, 0.5);
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Mobile Nav Link Indicator */
-.mobile-nav-link {
-    transition: all 0.3s ease;
-}
-
-.mobile-nav-link span:first-child {
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: all 0.3s ease;
-}
-
-.mobile-nav-link:hover span:first-child {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-
-@keyframes fade-in {
+@keyframes slide-down {
     from {
         opacity: 0;
-        transform: translateY(-15px);
+        transform: translateY(-20px);
     }
     to {
         opacity: 1;
@@ -214,50 +213,62 @@ export default {
     }
 }
 
-.animate-fade-in {
-    animation: fade-in 0.5s ease-out;
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Hover effects for mobile - simplified */
-@media (hover: none) {
-    .nav-link:hover {
-        background: none;
-        transform: none;
-        color: inherit;
-    }
-    .nav-link::before {
-        content: none !important;
-    }
-    .nav-link::after {
-        display: none;
-    }
-    .contact-btn:hover,
-    .mobile-contact-btn:hover {
-        transform: none;
-        box-shadow: none;
-    }
-    .group:hover .h-0.5 {
-        width: 2rem;
-        background: #ef4444;
-    }
-    .mobile-nav-link:hover span:first-child {
+@keyframes fade-in-up {
+    from {
         opacity: 0;
-        transform: none;
+        transform: translateY(20px);
     }
-    .mobile-nav-link:hover {
-        background: none !important;
-        border: 1px solid transparent !important;
-        color: inherit !important;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
+.animate-blink {
+    animation: blink 1s infinite;
+}
 
+.animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+}
 
+.animate-float-medium {
+    animation: float-medium 4s ease-in-out infinite;
+}
 
+.animate-float-fast {
+    animation: float-fast 3s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-pulse-slower {
+    animation: pulse-slower 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-bounce-subtle {
+    animation: bounce-subtle 0.6s ease-in-out;
+}
+
+.animate-slide-down {
+    animation: slide-down 0.3s ease-out;
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.5s ease-out both;
+}
+
+/* Additional responsive enhancements */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 </style>
-
