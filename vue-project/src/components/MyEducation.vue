@@ -165,7 +165,7 @@ const educationHistory = ref([]);
 
 onMounted(async () => {
   try {
-    const response = await axios.get('http://localhost:3000/api/education');
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/education`);
     educationHistory.value = response.data;
   } catch (error) {
     console.error(error);

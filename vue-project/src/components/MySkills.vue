@@ -6,7 +6,7 @@ const skills = ref([]);
 
 onMounted(async () => {
   try {
-    const response = await axios.get('http://localhost:3000/api/skills');
+   const response = await axios.get(`${import.meta.env.VITE_API_URL}/skills`);
     skills.value = response.data;
   } catch (error) {
     console.error(error);
