@@ -1,24 +1,9 @@
 {
   "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "vue-project/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "vue-project/dist" }
-    },
-    {
-      "src": "backend/index.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/backend/index.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/vue-project/dist/$1"
+      "source": "/api/:path*",
+      "destination": "/backend/index.js"
     }
   ]
 }
