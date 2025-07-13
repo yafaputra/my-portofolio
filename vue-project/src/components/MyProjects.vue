@@ -1,15 +1,17 @@
 <script setup>
+
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import SectionTitle from './SectionTitle.vue';
 const projects = ref([]);
+const API_URL = import.meta.env.PROD ? '/api/projects' :
+'http://localhost:3000/api/projects';
 onMounted(async () => {
-  try {
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/projects`);
-    projects.value = response.data;
-  } catch (error) {
-    console.error('Error fetching projects:', error);
-  }
+try {
+projects.value = (await axios.get(API_URL)).data;
+} catch (error) {
+console.error('Gagal mengambil data proyek:', error);
+}
 });
 </script>
 

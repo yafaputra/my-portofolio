@@ -1,16 +1,15 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
-
 const skills = ref([]);
-
+const API_URL = import.meta.env.PROD ? '/api/skills' :
+'http://localhost:3000/api/skills';
 onMounted(async () => {
-  try {
-   const response = await axios.get(`${import.meta.env.VITE_API_URL}/skills`);
-    skills.value = response.data;
-  } catch (error) {
-    console.error(error);
-  }
+try {
+skills.value = (await axios.get(API_URL)).data;
+} catch (error) {
+console.error('Gagal mengambil data skill:', error);
+}
 });
 </script>
 

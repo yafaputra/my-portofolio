@@ -157,20 +157,23 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
-import SectionTitle from './SectionTitle.vue';
+import { ref, onMounted } from 'vue'
+import axios from 'axios'
 
-const educationHistory = ref([]);
+const educationHistory = ref([])
+
+const API_URL = import.meta.env.PROD
+  ? '/api/education'
+  : 'http://localhost:3000/api/education'
 
 onMounted(async () => {
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/education`);
-    educationHistory.value = response.data;
+    const response = await axios.get(API_URL)
+    educationHistory.value = response.data
   } catch (error) {
-    console.error(error);
+    console.error('Gagal mengambil data pendidikan:', error)
   }
-});
+})
 </script>
 
 <style scoped>

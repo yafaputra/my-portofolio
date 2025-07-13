@@ -1,71 +1,47 @@
 // backend/index.js
 const express = require('express');
 const cors = require('cors');
-const { educationHistory, skills, projects } = require('./data');
+const { sql } = require('@vercel/postgres');
+const { educationHistory, skills, projects } = require('./data'); // opsional kalau pakai data lokal juga
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Configure CORS properly
-app.use(cors({
-  origin: 'http://localhost:5173', // Your Vue dev server
-  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-}));
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 
-// API Routes
-app.get('/api/education', (req, res) => {
+// ===== API pakai database
+app.get('/api/education', async (req, res) => {
   try {
-    res.json(educationHistory);
+    const { rows } = await sql`SELECT * FROM education ORDER BY period DESC;`;
+    res.status(200).json(rows);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch education history' });
+    res.status(500).json({ error: 'Gagal mengambil data pendidikan' });
   }
 });
 
-app.get('/api/skills', (req, res) => {
+app.get('/api/skills', async (req, res) => {
   try {
-    res.json(skills);
+    const { rows } = await sql`SELECT * FROM skills;`;
+    res.status(200).json(rows);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch skills' });
+    res.status(500).json({ error: 'Gagal mengambil data skill' });
   }
 });
 
-app.get('/api/projects', (req, res) => {
+app.get('/api/projects', async (req, res) => {
   try {
-    // Add filtering capability
-    const { category, status } = req.query;
-    let filteredProjects = [...projects];
-    
-    if (category) {
-      filteredProjects = filteredProjects.filter(
-        project => project.category.toLowerCase() === category.toLowerCase()
-      );
-    }
-    
-    if (status) {
-      filteredProjects = filteredProjects.filter(
-        project => project.status.toLowerCase() === status.toLowerCase()
-      );
-    }
-    
-    res.json(filteredProjects);
+    const { rows } = await sql`SELECT * FROM projects;`;
+    res.status(200).json(rows);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch projects' });
+    res.status(500).json({ error: 'Gagal mengambil data proyek' });
   }
 });
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ error: 'Something went wrong!' });
-});
+// ===== API pakai data lokal (jika PostgreSQL belum dipakai)
+app.get('/api/fake/education', (req, res) => res.json(educationHistory));
+app.get('/api/fake/skills', (req, res) => res.json(skills));
+app.get('/api/fake/projects', (req, res) => res.json(projects));
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server backend berjalan di http://localhost:${PORT}`);
-});
-
+// Untuk Vercel: jangan pakai app.listen
+module.exports = app;
