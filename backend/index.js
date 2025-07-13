@@ -47,4 +47,6 @@ app.get('/api/fake/skills', (req, res) => res.json(skills));
 app.get('/api/fake/projects', (req, res) => res.json(projects));
 
 // Untuk Vercel: jangan pakai app.listen
-module.exports = app;
+module.exports = (req, res) => {
+  app(req, res);
+};
