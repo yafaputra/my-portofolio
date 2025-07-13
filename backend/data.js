@@ -122,3 +122,4 @@ const projects = [
 
 // Single export statement
 module.exports = { educationHistory, skills, projects };
+
