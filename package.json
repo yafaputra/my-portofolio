@@ -1,17 +1,21 @@
 {
-  "dependencies": {
-    "@neondatabase/serverless": "^1.0.1",
-    "@vercel/postgres": "^0.10.0",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.0",
-    "express": "^5.1.0"
-  },
   "name": "my-portofolio",
   "version": "1.0.0",
   "description": "my-portofolio",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static build'",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@vercel/postgres": "^0.10.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "vercel": "^33.0.0",
+    "nodemon": "^3.1.10"
   },
   "repository": {
     "type": "git",
@@ -20,12 +24,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/yafaputra/my-portofolio/issues"
   },
-  "homepage": "https://github.com/yafaputra/my-portofolio#readme",
-  "devDependencies": {
-    "nodemon": "^3.1.10"
-  }
+  "homepage": "https://github.com/yafaputra/my-portofolio#readme"
 }
