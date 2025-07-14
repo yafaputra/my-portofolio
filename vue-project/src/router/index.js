@@ -5,7 +5,6 @@ import MyHero from '@/components/MyHero.vue';
 import MySkills from '@/components/MySkills.vue';
 import MyProjects from '@/components/MyProjects.vue';
 import MyContact from '@/components/MyContact.vue';
-import MyCertificat from '@/components/MyCertificat.vue';
 const routes = [
   {
     path: '/',
@@ -25,7 +24,6 @@ const routes = [
   {path: '/myskills', name:'MySkills',component:MySkills},
   {path: '/myprojects', name: 'MyProjects', component:MyProjects},
   {path: '/mycontact', name: 'MyContact', compoment:MyContact},
-  {path: '/mycertificat', name: 'MyCertificat', component: MyCertificat}
 ];
 
 const router = createRouter({

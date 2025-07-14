@@ -210,6 +210,8 @@
 
 <script setup>
 import { ref } from 'vue';
+// State to control zoomed image modal
+
 
 const showZoomed = ref(false);
 </script>
